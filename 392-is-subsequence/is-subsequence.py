@@ -1,10 +1,9 @@
 class Solution(object):
-    def isSubsequence(self, s, t):
-        m=0
-        n=0
-        while m<len(s) and n<len(t):
-           if s[m]==t[n]:
-               m+=1
-           n+=1
-        return m==len(s)
-        
+    #s="abc" t="ahbgdc" output=true
+    def isSubsequence(self,s, t):
+      j = 0 
+      for char in t:  
+        if j < len(s) and char == s[j]:  
+            j += 1
+      return j == len(s)  
+
