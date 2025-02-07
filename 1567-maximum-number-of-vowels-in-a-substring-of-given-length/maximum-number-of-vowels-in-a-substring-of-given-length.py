@@ -8,25 +8,18 @@ class Solution(object):
         """
         self.s=s
         self.k=k
-        countv=0
-        maxV=0
-        j=0
-        
         vowels=['a','i','o','u','e']
-        sett=[]
-        while j<len(s):
-            sett.append(s[j])
+        countv=sum([1 for i in range (k) if s[i] in vowels])
+        
+        maxv=countv
+       
+        for j in range(k,len(s)):
             if s[j] in vowels:
                 countv+=1
-            if len(sett)>=k:
-                maxV=max(maxV,countv)
-               
-                if sett[0] in vowels:
-                    countv-=1
-                sett.remove(sett[0])
-                
-            j+=1
-        return maxV
+            if s[j-k] in vowels:
+                countv-=1
+            maxv=max(maxv,countv)
+        return maxv
 
 
     
